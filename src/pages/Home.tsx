@@ -1,25 +1,16 @@
 import React from 'react';
-import { atom, selector, useRecoilState, useRecoilValue } from 'recoil';
+import { Typography } from 'antd';
+import { Link } from 'react-router-dom';
 
-const testState = atom({
-  key: 'testState',
-  default: 'test',
-});
-
-const testSelector = selector({
-  key: 'testSelectorState',
-  get: ({ get }) => {
-    return get(testState);
-  },
-});
+const { Title } = Typography;
 
 const Home = () => {
-  // const [test, setTest] = useRecoilState(testState);
-  const test = useRecoilValue(testSelector);
-
   return (
     <div>
-      Home {test}
+      <Typography>
+        <Title level={3}>Recoil + XState Home!</Title>
+      </Typography>
+      <Link to="/profile">Go to github profile example</Link>
     </div>
   );
 };
