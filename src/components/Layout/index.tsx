@@ -6,7 +6,7 @@ const { Header, Content, Footer } = Layout;
 
 const styles = {
   container: {
-    padding: '0 50px',
+    padding: '50px 50px',
   },
   ContentMain: styled.div`
     min-height: 280px;
@@ -16,7 +16,7 @@ const styles = {
 };
 
 interface IProps {
-  children?: Element | Element[];
+  children?: any;
 }
 
 const PageLayout: FC<IProps> = ({ children }) => {
