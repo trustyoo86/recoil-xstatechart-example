@@ -20,13 +20,13 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "noImplicitAny": false
   },
   "include": [
-    "src",
+    "src"
   ],
   "exclude": [
-    "app-config.js",
-    "craco.config.js"
+    "./.eslintrc.js"
   ]
 }

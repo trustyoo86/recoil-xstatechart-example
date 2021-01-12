@@ -2,9 +2,9 @@
  * @todo github rest api (https://api.github.com/users/trustyoo86)
  */
 import React from 'react';
-import { Row, Col, Typography } from 'antd';
+import { Row, Col, Typography, Skeleton } from 'antd';
 
-import { InsertProfile } from '@components/Profile';
+import { InsertProfile, ProfileInfo } from '@components/Profile';
 
 const { Title } = Typography;
 
@@ -18,6 +18,10 @@ const Profile = () => {
         <Col span={12}>
           {/* profile input */}
           <InsertProfile />
+
+          <React.Suspense fallback={<Skeleton loading />}>
+            <ProfileInfo />
+          </React.Suspense>
         </Col>
       </Row>
     </div>

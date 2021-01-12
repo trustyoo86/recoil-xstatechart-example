@@ -82,7 +82,7 @@ module.exports = {
     'no-new': 'error',
     'no-unused-expressions': ['error', { 'allowShortCircuit': true }],
     'no-unused-vars': 'warn',
-    'no-use-before-define': ['error', { 'functions': false }],
+    'no-use-before-define': 'off',
     'object-curly-spacing': ['warn', 'always'],
     'space-before-blocks': 'error',
     'semi-spacing': ['error', { 'before': false, 'after': true }],
@@ -107,5 +107,6 @@ module.exports = {
     'react/jsx-uses-react': 'error',
     'react/jsx-uses-vars': 'error',
     'react/self-closing-comp': 'error',
+    '@typescript-eslint/no-use-before-define': ['error'],
   },
 };
