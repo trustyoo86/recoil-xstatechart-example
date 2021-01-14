@@ -19,7 +19,7 @@ interface IProps {
   children?: any;
 }
 
-const PageLayout: FC<IProps> = ({ children }) => {
+const PageLayout: FC<IProps> = ({ children }: IProps) => {
   return (
     <Layout className="layout">
       <Header>
@@ -29,14 +29,12 @@ const PageLayout: FC<IProps> = ({ children }) => {
         </Menu>
       </Header>
       <Content style={styles.container}>
-        <Breadcrumb>
-        </Breadcrumb>
         <styles.ContentMain>
           {children}
         </styles.ContentMain>
       </Content>
       <Footer>
-        Hi! It's test footer
+        test footer
       </Footer>
     </Layout>
   );
