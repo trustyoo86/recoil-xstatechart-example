@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import { Menu, Layout, Breadcrumb } from 'antd';
 import styled from 'styled-components';
 
@@ -19,7 +19,7 @@ interface IProps {
   children?: any;
 }
 
-const PageLayout: FC<IProps> = ({ children }: IProps) => {
+function PageLayout({ children }: IProps) {
   return (
     <Layout className="layout">
       <Header>
@@ -34,10 +34,10 @@ const PageLayout: FC<IProps> = ({ children }: IProps) => {
         </styles.ContentMain>
       </Content>
       <Footer>
-        test footer
+        Hi! Its test footer
       </Footer>
     </Layout>
   );
-};
+}
 
 export default PageLayout;
