@@ -1,16 +1,50 @@
-import React from 'react';
-import { Form, Input } from 'antd';
+import React, { useCallback, useState } from 'react';
+import { Form, Input, Button } from 'antd';
+import { Machine } from 'xstate';
+import { useMachine } from '@xstate/react';
 
-const InsertProfile = () => {
+const toggleMachine = Machine({
+  id: 'toggle',
+  initial: 'inactive',
+  states: {
+    inactive: {
+      on: { TOUCH: 'active' },
+    },
+    active: {
+      on: { TOUCH: 'inactive' },
+    },
+  },
+});
+
+interface IProps {
+  ctx?: string;
+  onClick?: Function;
+}
+
+function InsertProfile({ onClick = () => console.log('test') }: IProps) {
+  const [value, setValue] = useState('');
+  const [current, send] = useMachine(toggleMachine);
+  const active = current.matches('active');
+
+  const changeHandler = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+    const val = target.value;
+    setValue(val);
+  };
+
+  const clickHandler = () => {
+    onClick();
+  };
+
   return (
     <Form>
       <Form.Item
         label="Username"
         name="username">
-        <Input placeholder="Username 입력" />
+        <Input placeholder="Username 입력" value={value} onChange={changeHandler} />
+        <Button onClick={clickHandler}>검색 {active ? '활성' : '비퐐성'} </Button>
       </Form.Item>
     </Form>
   );
-};
+}
 
 export default InsertProfile;
