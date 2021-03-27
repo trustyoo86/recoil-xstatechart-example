@@ -8,10 +8,10 @@ const toggleMachine = Machine({
   initial: 'inactive',
   states: {
     inactive: {
-      on: { TOUCH: 'active' },
+      on: { TOGGLE: 'active' },
     },
     active: {
-      on: { TOUCH: 'inactive' },
+      on: { TOGGLE: 'inactive' },
     },
   },
 });
@@ -41,7 +41,7 @@ function InsertProfile({ onClick = () => console.log('test') }: IProps) {
         label="Username"
         name="username">
         <Input placeholder="Username 입력" value={value} onChange={changeHandler} />
-        <Button onClick={clickHandler}>검색 {active ? '활성' : '비퐐성'} </Button>
+        <Button onClick={clickHandler} disabled={!active}>검색 {active ? '활성' : '비활성'} </Button>
       </Form.Item>
     </Form>
   );
