@@ -41,8 +41,14 @@ function Search() {
       </Row>
 
       {
-        currentState.matches('loaded') && !currentState.context.result.length && (
-          <div>Loaded!</div>
+        currentState.matches('loaded') && currentState.context.result.length && (
+          <ul>
+            {
+              currentState.context.result.map((item, idx) => {
+                return <li key={idx}>{item['full_name']}</li>;
+              })
+            }
+          </ul>
         )
       }
 

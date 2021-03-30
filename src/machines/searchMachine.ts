@@ -94,7 +94,7 @@ const machineConfig: Partial<MachineOptions<SearchContext, any>> = {
   actions: {
     storeResult: assign({
       result: (_, event): any => {
-        return event;
+        return event.data.items;
       },
     }),
     // resetSearchResults: assign({
